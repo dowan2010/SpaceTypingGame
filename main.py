@@ -2,6 +2,7 @@ import tkinter as tk
 import random as r
 import time
 from PIL import Image, ImageTk
+
 start_time = None
 
 # 게임에서 떨어질 단어 목록 (파이썬 / 자바스크립트 / 자바)
@@ -75,12 +76,14 @@ def show_start():
     # 시작 화면.. 타이틀이랑 목표 점수 안내, 시작 버튼
     canvas.delete("all")
     load_bg()
+    
     canvas.create_text(screen_w//2, screen_h//2, text="우타",
                        fill="white", font=("맑은 고딕", 40, "bold"))
     canvas.create_text(screen_w//2, screen_h//2 + 60, text=f"목표 점수: {target_score}점",
                        fill="yellow", font=("맑은 고딕", 20))
     canvas.create_text(screen_w//2, screen_h//2 + 100, text="엔터키로 입력",
                        fill="white", font=("맑은 고딕", 15))
+    
     btn = tk.Button(root, text="시작", command=show_difficulty_selection)
     canvas.create_window(screen_w//2, int(screen_h * 0.66), window=btn)
 
@@ -215,7 +218,7 @@ def check_input(_event):
     else:
         score -= 10
 
-
+# 우희린
 def stop_timers():
     # 게임 종료 또는 재시작할 때 남아있는 타이머 정리..
     global spawn_timer, speed_timer, game_loop_timer
